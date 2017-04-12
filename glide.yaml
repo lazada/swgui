@@ -1,0 +1,6 @@
+package: github.com/lazada/swgui
+import:
+- package: github.com/elazarl/go-bindata-assetfs
+  version: 57eb5e1fc594ad4b0b1dbea7b286d299e0cb43c2
+- package: github.com/jteeuwen/go-bindata
+  version: ~3.0.7
