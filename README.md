@@ -1,35 +1,33 @@
 # Swagger UI
 
-Package swgui (Swagger UI) provide a HTTP handler to serve Swagger UI.
+[![GoDoc](https://godoc.org/github.com/lazada/swgui?status.svg)](https://godoc.org/github.com/lazada/swgui)
+
+Package `swgui` (Swagger UI) provide a HTTP handler to serve Swagger UI.
 All assets are embedded in GO source code, so just build and run.
 
 ## How to use
 
 ```go
-    package main
+package main
 
-    import "http"
-    import "github.com/lazada/swgui"
+import (
+    "http"
 
-    func main() {
-        http.Handle("/", swgui.NewHandler("Page title", "path/to/swagger.json", "/"))
-        http.ListenAndServe(":8080", nil)
-    }
+    "github.com/lazada/swgui"
+)
+
+func main() {
+    http.Handle("/", swgui.NewHandler("Page title", "path/to/swagger.json", "/"))
+    http.ListenAndServe(":8080", nil)
+}
 ```
 
 ## Run as standalone server
 
-Install swgui server
+Install `swgui-server`
 
     go get github.com/lazada/swgui/...
 
 Start server
 
     swgui-server -port 8080
-
-## GoDoc 
-
-[![GoDoc](https://godoc.org/github.com/lazada/swgui?status.svg)](https://godoc.org/github.com/lazada/swgui)
-
-    godoc github.com/lazada/swgui/
-
