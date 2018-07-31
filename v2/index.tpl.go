@@ -1,4 +1,4 @@
-package swgui
+package v2
 
 var indexTpl = `
 <!DOCTYPE html>
@@ -41,7 +41,8 @@ var indexTpl = `
 	window.location = "http://" + window.location.host + window.location.pathname;
     }
     $(function () {
-      var jsonEditorEnabled = false;
+     var cfg = {{ .ConfigJson }};
+     var jsonEditorEnabled = false;
       {{if .JsonEditor }}
       if (window.localStorage && window.localStorage.getItem('jsonEditorEnabled')) {
         jsonEditorEnabled = true;
