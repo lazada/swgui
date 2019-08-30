@@ -5,11 +5,8 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/shurcooL/httpgzip"
 	"github.com/swaggest/swgui"
 )
-
-var staticServer = httpgzip.FileServer(assets, httpgzip.FileServerOptions{})
 
 // Handler handle swagger UI request
 type Handler struct {
@@ -31,7 +28,9 @@ func NewHandler(title, swaggerJSONPath string, basePath string) *Handler {
 	j, _ := json.Marshal(h.Config)
 	h.ConfigJson = template.JS(j)
 	h.tpl, _ = template.New("index").Parse(indexTpl)
-	h.staticServer = http.StripPrefix(basePath, staticServer)
+	if staticServer != nil {
+		h.staticServer = http.StripPrefix(basePath, staticServer)
+	}
 	return h
 }
 
@@ -43,13 +42,15 @@ func NewHandlerWithConfig(config swgui.Config) *Handler {
 	j, _ := json.Marshal(h.Config)
 	h.ConfigJson = template.JS(j)
 	h.tpl, _ = template.New("index").Parse(indexTpl)
-	h.staticServer = http.StripPrefix(h.BasePath, staticServer)
+	if staticServer != nil {
+		h.staticServer = http.StripPrefix(h.BasePath, staticServer)
+	}
 	return h
 }
 
 // ServeHTTP implement http.Handler interface, to handle swagger UI request
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != h.BasePath {
+	if r.URL.Path != h.BasePath && h.staticServer != nil {
 		h.staticServer.ServeHTTP(w, r)
 		return
 	}
