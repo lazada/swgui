@@ -5,10 +5,11 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/shurcooL/httpgzip"
 	"github.com/swaggest/swgui"
 )
 
-var staticServer = http.FileServer(assets)
+var staticServer = httpgzip.FileServer(assets, httpgzip.FileServerOptions{})
 
 // Handler handle swagger UI request
 type Handler struct {
