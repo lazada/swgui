@@ -24,6 +24,14 @@ func main() {
 }
 ```
 
+## Use CDN for assets
+
+In order to reduce binary size you can import `github.com/swaggest/swgui/v3cdn` to use CDN hosted assets.
+
+Also you can use `swguicdn` build tag to enable CDN mode for `github.com/swaggest/swgui/v3` import.
+
+Be aware that CDN mode may be considered inappropriate for security or networking reasons.
+
 ## Run as standalone server
 
 Install `swgui-server`
