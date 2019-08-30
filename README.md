@@ -5,7 +5,7 @@
 Package `swgui` (Swagger UI) provides HTTP handler to serve Swagger UI.
 All assets are embedded in Go source code, so just build and run.
 
-Static assets for `v3` are built from Swagger UI [v3.20.7](https://github.com/swagger-api/swagger-ui/releases/tag/v3.20.7).
+Static assets for `v3` are built from Swagger UI [v3.26.3](https://github.com/swagger-api/swagger-ui/releases/tag/v3.26.3).
 
 ## How to use
 
