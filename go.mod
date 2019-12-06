@@ -6,3 +6,5 @@ require (
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd
 	golang.org/x/tools v0.0.0-20190830172400-56125e7d709e // indirect
 )
+
+go 1.11
