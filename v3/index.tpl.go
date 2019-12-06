@@ -65,7 +65,17 @@ var indexTpl = `
             layout: "StandaloneLayout",
             showExtensions: true,
             showCommonExtensions: true,
-            validatorUrl: null
+            validatorUrl: null,
+			onComplete: function() {
+				var dom = document.querySelector('.scheme-container select');
+				for (var key in dom) {
+					if (key.startsWith("__reactInternalInstance$")) {
+						var compInternals = dom[key]._currentElement;
+						var compWrapper = compInternals._owner;
+						compWrapper._instance.setScheme(window.location.protocol.slice(0,-1));
+					}
+				}
+			}
         };
 
         if (cfg.preAuthorizeApiKey) {
