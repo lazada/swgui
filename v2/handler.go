@@ -54,7 +54,8 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "text/html")
 	if err := h.tpl.Execute(w, h); err != nil {
-		http.NotFound(w, r)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
