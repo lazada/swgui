@@ -1,6 +1,6 @@
 # Swagger UI
 
-[![GoDoc](https://godoc.org/github.com/swaggest/swgui?status.svg)](https://godoc.org/github.com/swaggest/swgui)
+[![GoDevDoc](https://img.shields.io/badge/dev-doc-00ADD8?logo=go)](https://pkg.go.dev/github.com/swaggest/swgui)
 
 Package `swgui` (Swagger UI) provides HTTP handler to serve Swagger UI.
 All assets are embedded in Go source code, so just build and run.
