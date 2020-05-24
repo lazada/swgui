@@ -5,9 +5,9 @@
 Package `swgui` (Swagger UI) provides HTTP handler to serve Swagger UI.
 All assets are embedded in Go source code, so just build and run.
 
-Static assets for `v3` are built from Swagger UI [v3.24.3](https://github.com/swagger-api/swagger-ui/releases/tag/v3.24.3).
+Static assets for `v3` are built from Swagger UI [v3.25.4](https://github.com/swagger-api/swagger-ui/releases/tag/v3.25.).
 
-[CDN-based](https://cdnjs.com/libraries/swagger-ui) `v3cdn` uses Swagger UI [v3.23.11](https://github.com/swagger-api/swagger-ui/releases/tag/v3.23.11).
+[CDN-based](https://cdnjs.com/libraries/swagger-ui) `v3cdn` uses Swagger UI [v3.24.2](https://github.com/swagger-api/swagger-ui/releases/tag/v3.24.2).
 
 ## How to use
 
