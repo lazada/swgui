@@ -1,4 +1,4 @@
-SWAGGER_UI_VERSION := v3.25.4
+SWAGGER_UI_VERSION := v3.35.1
 
 update:
 	curl https://raw.githubusercontent.com/swagger-api/swagger-ui/$(SWAGGER_UI_VERSION)/dist/swagger-ui-bundle.js -o ./v3/static/swagger-ui-bundle.js
