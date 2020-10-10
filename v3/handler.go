@@ -4,11 +4,12 @@ import (
 	"encoding/json"
 	"html/template"
 	"net/http"
+	"strings"
 
 	"github.com/swaggest/swgui"
 )
 
-// Handler handle swagger UI request
+// Handler handles swagger UI request.
 type Handler struct {
 	swgui.Config
 
@@ -18,12 +19,12 @@ type Handler struct {
 	staticServer http.Handler
 }
 
-// NewHandler returns a HTTP handler for swagger UI
+// NewHandler returns a HTTP handler for swagger UI.
 func NewHandler(title, swaggerJSONPath string, basePath string) *Handler {
 	h := &Handler{}
 	h.Title = title
 	h.SwaggerJSON = swaggerJSONPath
-	h.BasePath = basePath
+	h.BasePath = strings.TrimSuffix(basePath, "/") + "/"
 
 	j, _ := json.Marshal(h.Config)
 	h.ConfigJson = template.JS(j)
@@ -34,8 +35,10 @@ func NewHandler(title, swaggerJSONPath string, basePath string) *Handler {
 	return h
 }
 
-// NewHandlerWithConfig returns a HTTP handler for swagger UI
+// NewHandlerWithConfig returns a HTTP handler for swagger UI.
 func NewHandlerWithConfig(config swgui.Config) *Handler {
+	config.BasePath = strings.TrimSuffix(config.BasePath, "/") + "/"
+
 	h := &Handler{
 		Config: config,
 	}
@@ -48,9 +51,9 @@ func NewHandlerWithConfig(config swgui.Config) *Handler {
 	return h
 }
 
-// ServeHTTP implement http.Handler interface, to handle swagger UI request
+// ServeHTTP implements http.Handler interface to handle swagger UI request.
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != h.BasePath && h.staticServer != nil {
+	if strings.TrimSuffix(r.URL.Path, "/") != strings.TrimSuffix(h.BasePath, "/") && h.staticServer != nil {
 		h.staticServer.ServeHTTP(w, r)
 		return
 	}
