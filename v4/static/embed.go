@@ -7,6 +7,6 @@ import (
 	"embed"
 )
 
-// FS holds embedded assets.
 //go:embed *.png *.gz
+// FS holds embedded static assets.
 var FS embed.FS

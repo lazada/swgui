@@ -1,5 +1,5 @@
-// Package v3emb provides Swagger UI v3 with Go embed.
-package v3emb
+// Package v4emb provides Swagger UI v4 with Go embed.
+package v4emb
 
 import (
 	"github.com/swaggest/swgui"
