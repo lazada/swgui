@@ -21,6 +21,14 @@ UI [v4.18.1](https://github.com/swagger-api/swagger-ui/releases/tag/v4.18.1).
 [CDN-based](https://cdnjs.com/libraries/swagger-ui) `v4cdn` uses Swagger
 UI [v4.18.1](https://github.com/swagger-api/swagger-ui/releases/tag/v4.18.1).
 
+### V5
+
+Static assets for `v5` are built from Swagger
+UI [v5.0.0-alpha.0](https://github.com/swagger-api/swagger-ui/releases/tag/v5.0.0-alpha.0).
+
+[CDN-based](https://cdnjs.com/libraries/swagger-ui) `v4cdn` uses Swagger
+UI [v5.0.0-alpha.0](https://github.com/swagger-api/swagger-ui/releases/tag/v5.0.0-alpha.0).
+
 
 ## How to use
 
